@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,6 +19,7 @@ import lombok.ToString;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.OffsetDateTime;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -41,6 +43,14 @@ public class AddressLogEntity implements Serializable {
     @JoinColumn(name = "ADDRESS_ID", nullable = false)
      private AddressEntity address;
 
+    @Column(name = "ADDRESS_LOG_EXTERNAL_ID", nullable = false, unique = true)
+    private UUID addressLogExternalId;
+
      @Column(name = "LOGGED_AT", columnDefinition = "TIMESTAMP")
      private OffsetDateTime loggedAt;
+
+    @PrePersist
+    public void generateAddressLogExternalId() {
+        this.addressLogExternalId = UUID.randomUUID();
+    }
 }

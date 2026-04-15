@@ -19,3 +19,7 @@ spring:
 logging:
   level:
     br.com.gabrielferreira.cep: TRACE
+
+clients:
+  address:
+    url: ${ADDRESS_CLIENT_URL:http://localhost:3000/ws}

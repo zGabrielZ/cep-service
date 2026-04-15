@@ -1,5 +1,6 @@
 package br.com.gabrielferreira.cep.domain.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,7 +40,7 @@ public class AddressLogEntity implements Serializable {
     @EqualsAndHashCode.Include
      private Long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ADDRESS_ID", nullable = false)
      private AddressEntity address;
 

@@ -3,6 +3,7 @@ package br.com.gabrielferreira.cep.domain.mappers;
 import br.com.gabrielferreira.cep.domain.dto.AddressResponse;
 import br.com.gabrielferreira.cep.domain.entities.AddressEntity;
 import br.com.gabrielferreira.cep.domain.entities.AddressLogEntity;
+import br.com.gabrielferreira.cep.domain.enums.Status;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -20,5 +21,8 @@ public interface AddressMapper {
 
     @Mapping(target = "address", source = "addressResponse", qualifiedByName = "toEntity")
     @Mapping(target = "loggedAt", source = "loggedAt")
-    AddressLogEntity toLogEntity(AddressResponse addressResponse, OffsetDateTime loggedAt);
+    @Mapping(target = "status", source = "status")
+    @Mapping(target = "errorMessage", source = "errorMessage")
+    AddressLogEntity toLogEntity(AddressResponse addressResponse, OffsetDateTime loggedAt,
+                                                      Status status, String errorMessage);
 }

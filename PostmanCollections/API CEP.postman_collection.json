@@ -1,0 +1,43 @@
+{
+  "info": {
+    "_postman_id": "8e61fb81-8202-414e-a384-15e374152500",
+    "name": "API CEP",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "7508453",
+    "_collection_link": "https://go.postman.co/collection/7508453-8e61fb81-8202-414e-a384-15e374152500?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Search address by postal code",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "projectExternalId",
+            "value": "63f0d48c-ac6d-4574-aa35-656cb53a9100",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Alice\",\r\n    \"lastName\": \"Fernandes\",\r\n    \"email\": \"test50@email.com\",\r\n    \"password\": \"Ac1@\"\r\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/addresses/03342900",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "addresses",
+            "03342900"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

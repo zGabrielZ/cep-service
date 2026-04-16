@@ -9,9 +9,6 @@
   "item": [
     {
       "name": "Search address by postal code",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
       "request": {
         "method": "GET",
         "header": [
@@ -21,10 +18,6 @@
             "type": "text"
           }
         ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"firstName\": \"Alice\",\r\n    \"lastName\": \"Fernandes\",\r\n    \"email\": \"test50@email.com\",\r\n    \"password\": \"Ac1@\"\r\n}"
-        },
         "url": {
           "raw": "{{host}}/v1/addresses/03342900",
           "host": [

@@ -239,7 +239,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         ProblemDetailDTO problemDetailDTO = mapper.toProblemDetailDto(
                 httpStatus.value(),
                 "External Service Unavailable",
-                ex.getMessage(),
+                "The external service is currently unavailable. Please try again later.",
                 "The external service is currently unavailable. Please try again later.",
                 OffsetDateTime.now()
         );

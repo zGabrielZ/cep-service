@@ -180,7 +180,7 @@ class ApiExceptionHandlerTest {
         verify(mapper, times(1)).toProblemDetailDto(
                 eq(503),
                 eq("External Service Unavailable"),
-                eq("Service unavailable"),
+                eq("The external service is currently unavailable. Please try again later."),
                 eq("The external service is currently unavailable. Please try again later."),
                 any()
         );

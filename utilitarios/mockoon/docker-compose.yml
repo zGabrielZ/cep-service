@@ -1,0 +1,9 @@
+services:
+  mockoon:
+    image: mockoon/cli:latest
+    container_name: mockoon
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/data
+    command: ["--data", "/data/mock.json", "--port", "3000"]

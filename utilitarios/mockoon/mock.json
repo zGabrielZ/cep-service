@@ -1,0 +1,238 @@
+{
+  "uuid": "1176d325-95a2-4639-b408-2f6c0f77ded8",
+  "lastMigration": 32,
+  "name": "CEP API",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "routes": [
+    {
+      "uuid": "fc57f613-aa83-4fd1-a8ff-c94398249bd2",
+      "documentation": "Busca CEP com cenários de erro",
+      "method": "get",
+      "endpoint": "/ws/:cep/json",
+      "responses": [
+        {
+          "uuid": "371a1273-1a15-40c1-8da1-62383573829a",
+          "statusCode": 200,
+          "label": "Sucesso",
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "cep",
+              "operator": "equals",
+              "value": "200",
+              "invert": false
+            }
+          ],
+          "body": "{ \"cep\": \"{{urlParam 'cep'}}\", \"logradouro\": \"Avenida Regente Feijó\", \"numero\": \"123\", \"complemento\": \"Shopping\", \"bairro\": \"Vila Regente Feijó\", \"localidade\": \"São Paulo\", \"estado\": \"SP\" }",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "crudKey": "id",
+          "callbacks": [],
+          "latency": 0,
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "8828612a-186d-44d7-be2e-69179717d620",
+          "statusCode": 400,
+          "label": "Bad Request",
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "cep",
+              "operator": "equals",
+              "value": "400",
+              "invert": false
+            }
+          ],
+          "body": "{ \"erro\": \"Requisição inválida\" }",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "crudKey": "id",
+          "callbacks": [],
+          "latency": 0,
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "b2b6f10a-97fc-4ff6-a8b7-dc163367405b",
+          "statusCode": 404,
+          "label": "Not Found",
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "cep",
+              "operator": "equals",
+              "value": "404",
+              "invert": false
+            }
+          ],
+          "body": "{ \"erro\": \"CEP não encontrado\" }",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "crudKey": "id",
+          "callbacks": [],
+          "latency": 0,
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "37311033-8ad6-431c-976d-8047290dc530",
+          "statusCode": 409,
+          "label": "Conflict",
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "cep",
+              "operator": "equals",
+              "value": "409",
+              "invert": false
+            }
+          ],
+          "body": "{ \"erro\": \"Conflito de dados\" }",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "crudKey": "id",
+          "callbacks": [],
+          "latency": 0,
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "fa061360-300e-4fa6-93a5-2e975f68e612",
+          "statusCode": 415,
+          "label": "Unsupported Media Type",
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "cep",
+              "operator": "equals",
+              "value": "415",
+              "invert": false
+            }
+          ],
+          "body": "{ \"erro\": \"Tipo de mídia não suportado\" }",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "crudKey": "id",
+          "callbacks": [],
+          "latency": 0,
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "ab3bc850-b4c2-44fe-87a3-dd2ab4a71a08",
+          "statusCode": 500,
+          "label": "Internal Server Error",
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "cep",
+              "operator": "equals",
+              "value": "500",
+              "invert": false
+            }
+          ],
+          "body": "{ \"erro\": \"Erro interno do servidor\" }",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "crudKey": "id",
+          "callbacks": [],
+          "latency": 0,
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "type": "http",
+      "responseMode": null
+    }
+  ],
+  "callbacks": [],
+  "hostname": "",
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "fc57f613-aa83-4fd1-a8ff-c94398249bd2"
+    }
+  ],
+  "folders": [],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [],
+  "proxyReqHeaders": [],
+  "proxyResHeaders": [],
+  "data": []
+}

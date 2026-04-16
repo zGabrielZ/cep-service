@@ -89,7 +89,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                     }
             )
     )
-    public ResponseEntity<Object> handleBadRequest(Exception ex, WebRequest request) {
+    public ResponseEntity<Object> handleBadRequest(BadRequestException ex, WebRequest request) {
         log.error("Bad request error: {}", ex.getMessage(), ex);
         HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
         ProblemDetailDTO problemDetailDTO = mapper.toProblemDetailDto(
@@ -125,7 +125,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                     }
             )
     )
-    public ResponseEntity<Object> handleNotFound(Exception ex, WebRequest request) {
+    public ResponseEntity<Object> handleNotFound(NotFoundException ex, WebRequest request) {
         log.error("Resource not found: {}", ex.getMessage(), ex);
         HttpStatus httpStatus = HttpStatus.NOT_FOUND;
         ProblemDetailDTO problemDetailDTO = mapper.toProblemDetailDto(
@@ -161,7 +161,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                     }
             )
     )
-    public ResponseEntity<Object> handleConflict(Exception ex, WebRequest request) {
+    public ResponseEntity<Object> handleConflict(ConflictException ex, WebRequest request) {
         log.error("Conflict error: {}", ex.getMessage(), ex);
         HttpStatus httpStatus = HttpStatus.CONFLICT;
         ProblemDetailDTO problemDetailDTO = mapper.toProblemDetailDto(
@@ -197,7 +197,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                     }
             )
     )
-    public ResponseEntity<Object> handleBadGateway(Exception ex, WebRequest request) {
+    public ResponseEntity<Object> handleBadGateway(BadGatewayException ex, WebRequest request) {
         log.error("Bad gateway error: {}", ex.getMessage(), ex);
         HttpStatus httpStatus = HttpStatus.BAD_GATEWAY;
         ProblemDetailDTO problemDetailDTO = mapper.toProblemDetailDto(

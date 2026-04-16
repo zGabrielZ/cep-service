@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: cep-service
+  profiles:
+    active:
+      - ${APP_PROFILE:test}
+  jpa:
+    open-in-view: false
+  output:
+    ansi:
+      enabled: ALWAYS
+
+server:
+  servlet:
+    context-path: '/api'

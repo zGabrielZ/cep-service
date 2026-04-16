@@ -34,24 +34,24 @@ public class AddressEntity implements Serializable {
     @EqualsAndHashCode.Include
     private Long id;
 
-    @Column(name = "POSTAL_CODE", nullable = false)
+    @Column(name = "POSTAL_CODE")
     private String postalCode;
 
-    @Column(name = "STREET", nullable = false)
+    @Column(name = "STREET")
     private String street;
 
-    @Column(name = "NUMBER", nullable = false)
+    @Column(name = "NUMBER")
     private String number;
 
     @Column(name = "COMPLEMENT")
     private String complement;
 
-    @Column(name = "NEIGHBORHOOD", nullable = false)
+    @Column(name = "NEIGHBORHOOD")
     private String neighborhood;
 
-    @Column(name = "CITY", nullable = false)
+    @Column(name = "CITY")
     private String city;
 
-    @Column(name = "STATE", nullable = false)
+    @Column(name = "STATE")
     private String state;
 }
